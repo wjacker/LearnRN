@@ -53,18 +53,18 @@ class Login extends Component {
 
     login() {
         console.log('login');
-        if (this.state.corpName === '') {
-            Toast.showLoading('企业名不能为空');
+        if (this.state.corpName == null) {
+            Toast.show('企业名不能为空');
             //ToastAndroid.show('企业名不能为空', ToastAndroid.SHORT);
             return;
         }
-        if (this.state.userName === '') {
-            Toast.showLoading('用户名不能为空');
+        if (this.state.userName == null) {
+            Toast.show('用户名不能为空');
             //ToastAndroid.show('用户名不能为空', ToastAndroid.SHORT);
             return;
         }
-        if (this.state.pwd === '') {
-            Toast.showLoading('密码不能为空');
+        if (this.state.pwd == null) {
+            Toast.show('密码不能为空');
             //ToastAndroid.show('密码不能为空', ToastAndroid.SHORT);
             return;
         }

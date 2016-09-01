@@ -14,6 +14,7 @@ RCT_EXPORT_MODULE(ToastIOS)
 
 RCT_EXPORT_METHOD(makeToastActivity) {
     dispatch_async(dispatch_get_main_queue(), ^{
+        [[[[UIApplication sharedApplication]windows]firstObject] hideToast];
         [[[[UIApplication sharedApplication] windows] firstObject] makeToastActivity];
     });
 }
@@ -46,6 +47,7 @@ RCT_EXPORT_METHOD(show:(NSDictionary *)options) {
     }
     
     dispatch_async(dispatch_get_main_queue(), ^{
+        [[[[UIApplication sharedApplication] windows] firstObject] hideToastActivity];
         [[[[UIApplication sharedApplication]windows]firstObject] makeToast:message duration:durationInt position:position addPixelsY:addPixelsY == nil ? 0 : [addPixelsY intValue]];
     });
 }

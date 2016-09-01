@@ -10,7 +10,7 @@ var ToastIOS = NativeModules.ToastIOS;
 const Toast = ({
     show(message) {
     	if(Platform.OS === 'ios') {
-    		ToastIOS.show.bind(null, '登录失败，请重试');
+    		ToastIOS.show({"message":message, "duration":"short", "position":"center"});
     	} else {
     		ToastAndroid.show(message, ToastAndroid.SHORT);
     	}
