@@ -75,9 +75,9 @@ class Login extends Component {
         client.addMiddleware(json());
         client.post('/services/public/user/login', {
             form: {
-                corp_name: this.state.corpName,
-                user_name: this.state.userName,
-                password: this.state.pwd,
+                corp_name: '朱龙',//this.state.corpName,
+                user_name: '朱龙', //this.state.userName,
+                password: 'test',//this.state.pwd,
                 device_type: 1,
                 device_id: 'qxwifi54:14:73:7d:2c:55'
             },
@@ -121,19 +121,19 @@ class Login extends Component {
             //NativeModules.LoadingDialogAndroid.dismissLoadingDialog();
         });
 
-        //fetch(LOGIN_URL, {
+        // fetch(LOGIN_URL, {
         //    method: "POST",
         //    headers:{
         //        'Content-Type': 'application/x-www-form-urlencoded',
         //    },
-        //
-        //    body:'corp_name=朱龙&user_name=朱龙&password=test&device_type=1&device_id=qxwifi54:14:73:7d:2c:55'
-        //
-        //}).then((result)=> {
+        
+        //    body:'corp_name=朱龙&user_name=朱龙&password=test&device_type=0&device_id=qxwifi54:14:73:7d:2c:55'
+        
+        // }).then((result)=> {
         //    console.log(result);
-        //}).catch((error)=> {
+        // }).catch((error)=> {
         //    console.error(error);
-        //});
+        // });
     }
 
     render() {

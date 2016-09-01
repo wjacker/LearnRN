@@ -12,7 +12,8 @@ import{
     }from 'react-native'
 
 import TabNavigator from 'react-native-tab-navigator';
-import Main from './Main'
+//import Main from './Main'
+const UIExplorerApp = require('../UIExplorer/UIExplorerApp.ios');
 import Order from './Order'
 import Cart from './Cart'
 import Center from './Center'
@@ -36,7 +37,7 @@ class Home extends Component {
                     renderSelectedIcon={()=> <Image source={require('../images/ic_tab_home_press.png')} style={styles.iconStyle}/>}
                     onPress={()=>this.setState({selectedTab:'home'})}
                     >
-                <Main {...this.props}/>
+                <UIExplorerApp {...this.props}/>
                 </TabNavigator.Item>
                 <TabNavigator.Item
                     title='订单' selected={this.state.selectedTab==='order'}
