@@ -7,7 +7,6 @@ import {
     TextInput,
     TouchableOpacity,
     StyleSheet,
-    ToastAndroid,
     NativeModules,
     ProgressBarAndroid,
     InteractionManager,
@@ -16,6 +15,7 @@ import {
 import Home from './Home'
 import {saveCorpName, getCorpName, saveUserId, getUserId, saveCustomerId, savePwd, getPwd, saveToken, saveUserKey} from '../utils/AsyncStoregeUtils';
 import FetchHttpClient, {json,form} from 'fetch-http-client';
+import Toast from '../component/Toast.js'
 const client = new FetchHttpClient('http://t2.dcfservice.com');
 
 var LOGIN_URL = 'http://t2.dcfservice.com/services/public/user/login';
@@ -53,20 +53,24 @@ class Login extends Component {
 
     login() {
         console.log('login');
-        if (this.state.corpName === '') {
-            ToastAndroid.show('企业名不能为空', ToastAndroid.SHORT);
+        if (this.state.corpName == null) {
+            Toast.show('企业名不能为空');
+            //ToastAndroid.show('企业名不能为空', ToastAndroid.SHORT);
             return;
         }
-        if (this.state.userName === '') {
-            ToastAndroid.show('用户名不能为空', ToastAndroid.SHORT);
+        if (this.state.userName == null) {
+            Toast.show('用户名不能为空');
+            //ToastAndroid.show('用户名不能为空', ToastAndroid.SHORT);
             return;
         }
-        if (this.state.pwd === '') {
-            ToastAndroid.show('密码不能为空', ToastAndroid.SHORT);
+        if (this.state.pwd == null) {
+            Toast.show('密码不能为空');
+            //ToastAndroid.show('密码不能为空', ToastAndroid.SHORT);
             return;
         }
 
-        NativeModules.LoadingDialogAndroid.showLoadingDialog('正在登陆');
+        Toast.showLoading('正在登陆');
+        //NativeModules.LoadingDialogAndroid.showLoadingDialog('正在登陆');
         client.addMiddleware(form());
         client.addMiddleware(json());
         client.post('/services/public/user/login', {
@@ -78,7 +82,8 @@ class Login extends Component {
                 device_id: 'qxwifi54:14:73:7d:2c:55'
             },
         }).then(response=> {
-            NativeModules.LoadingDialogAndroid.dismissLoadingDialog();
+            Toast.hideLoading();
+            //NativeModules.LoadingDialogAndroid.dismissLoadingDialog();
             console.log(response.jsonData);
             let jsonData = response.jsonData;
             if (jsonData) {
@@ -99,17 +104,21 @@ class Login extends Component {
                     });
                 } else {
                     if (jsonData.message) {
-                        ToastAndroid.show(jsonData.message, ToastAndroid.SHORT);
+                        Toast.show(jsonData.message);
+                        //ToastAndroid.show(jsonData.message, ToastAndroid.SHORT);
                     } else {
-                        ToastAndroid.show('登录失败，请重试', ToastAndroid.SHORT);
+                        Toast.show('登录失败，请重试');
+                        //ToastAndroid.show('登录失败，请重试', ToastAndroid.SHORT);
                     }
                 }
             } else {
-                ToastAndroid.show('登录失败，请重试', ToastAndroid.SHORT);
+                Toast.show('登录失败，请重试');
+                //ToastAndroid.show('登录失败，请重试', ToastAndroid.SHORT);
             }
         }).catch(error=> {
             //console.error(error.message);
-            NativeModules.LoadingDialogAndroid.dismissLoadingDialog();
+            Toast.hideLoading();
+            //NativeModules.LoadingDialogAndroid.dismissLoadingDialog();
         });
 
         //fetch(LOGIN_URL, {
@@ -131,10 +140,9 @@ class Login extends Component {
         return (
             <View style={{flex: 1, backgroundColor: '#4876cd' }}>
 
-                <View style={{backgroundColor:'white', marginTop:20}}>
+                <View style={{marginTop:20}}>
 
-                    <View style={{flexDirection:'row'}}>
-                        <TextInput style={styles.textInput} placeholder="请输入企业名" placeholderTextColor="#d1d2d2"
+                    <TextInput style={styles.textInput} placeholder="请输入企业名" placeholderTextColor="#d1d2d2"
                                    defaultValue={this.state.corpName}
                                    onChangeText={(value)=>{
                                         console.log(value);
@@ -142,7 +150,6 @@ class Login extends Component {
                                             corpName: value,
                                         });
                                    }}/>
-                    </View>
 
                     <TextInput style={styles.textInput} placeholder="请输入用户名/手机号" placeholderTextColor="#d1d2d2"
                                defaultValue={this.state.userName}
@@ -162,7 +169,7 @@ class Login extends Component {
                 </View>
 
                 <TouchableOpacity onPress={this.login.bind(this)}
-                                  style={{backgroundColor:'white', marginTop:20, alignItems:'center', justifyContent:'center'}}>
+                                  style={{backgroundColor:'white', margin:10, alignItems:'center', justifyContent:'center'}}>
                     <Text style={{color: '#55ACEE', padding:10}}>登录</Text>
                 </TouchableOpacity>
             </View>
@@ -174,6 +181,10 @@ const styles = StyleSheet.create({
     textInput: {
         color: '#667b86',
         flex: 1,
+        height: 40,
+        padding:10,
+        margin:10,
+        backgroundColor:'white'
     }
 });
 
