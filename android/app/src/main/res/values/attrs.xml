@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="optionItem">
+        <attr name="item_title" format="string" />
+        <attr name="item_title_color" format="color|reference" />
+        <!-- 当项的图片点击时无变化 -->
+        <attr name="item_icon" format="reference" />
+        <attr name="item_background" format="color|reference" />
+    </declare-styleable>
+</resources>
