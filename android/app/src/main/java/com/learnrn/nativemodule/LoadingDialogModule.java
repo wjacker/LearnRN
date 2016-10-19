@@ -1,4 +1,4 @@
-package com.learnrn.module;
+package com.learnrn.nativemodule;
 
 import android.app.Dialog;
 import android.text.TextUtils;
