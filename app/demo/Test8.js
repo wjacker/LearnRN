@@ -10,33 +10,37 @@ import{
     StyleSheet,
     } from 'react-native';
 
-class Test2 extends Component {
+class Test8 extends Component {
     render() {
         return (
             <View>
-                <Text>
-                    根节点上放一个元素，不设置宽度
-                </Text>
-
-                <View style={{height: 20, backgroundColor: '#333333'}}/>
-
                 <Text style={[styles.text, styles.header]}>
-                    固定宽度的元素上放一个View，不设置宽度
+                    文本元素
                 </Text>
 
-                <View style={{width: 100}}>
-                    <View style={{height: 20, backgroundColor: '#333333'}}/>
+                <View style={{backgroundColor: '#333333', padding: 10}}>
+                    <Text style={styles.baseText} numberOfLines={5}>
+                        <Text style={styles.titleText} >
+                            文本元素{'\n'}
+                        </Text>
+                        <Text>
+                            {'\n'}In this example, the nested title and body text will inherit the fontFamily from styles.baseText, but the title provides its own additional styles. The title and body will stack on top of each other on account of the literal newlines, numberOfLines is Used to truncate the text with an elipsis after computing the text layout, including line wrapping, such that the total number of lines does not exceed this number.
+                        </Text>
+                    </Text>
                 </View>
 
-                <Text>
-                    flex的元素上放一个View，不设置宽度
+                <Text style={[styles.text, styles.header]}>
+                    文本样式继承
                 </Text>
 
-                <View style={{flexDirection: 'row'}}>
-                    <View style={{flex: 1}}>
-                        <View style={{height: 20, backgroundColor: '#333333'}}/>
-                    </View>
-                    <View style={{flex: 1}}/>
+                <View style={{backgroundColor: '#333333', padding: 10}}>
+                    <Text style={{color: 'white'}}>
+                        <Text style={{color: 'red'}}>
+                            文本元素{'\n'}
+                            <Text>我是white还是red呢？{'\n'} </Text>
+                        </Text>
+                        <Text>我应该是white的</Text>
+                    </Text>
                 </View>
             </View>
         );
@@ -44,7 +48,14 @@ class Test2 extends Component {
 }
 
 const styles=StyleSheet.create({
-
+    baseText: {
+        fontFamily: 'Cochin',
+        color: 'white'
+    },
+    titleText: {
+        fontSize: 20,
+        fontWeight: 'bold',
+    }
 });
 
-export default Test2;
+export default Test8;

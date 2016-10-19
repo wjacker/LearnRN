@@ -20,6 +20,7 @@ import ManageAddress from './centerContent/ManageAddress';
 import More from './centerContent/More';
 import ImageButton from '../component/ImageButton';
 import HorizontalOptionBar from '../component/HorizontalOptionBar'
+import TestAnimated from './TestAnimated'
 
 class Center extends Component {
     constructor(props) {
@@ -42,7 +43,12 @@ class Center extends Component {
 
         switch (position) {
             case 0:
-                ToastAndroid.show("该功能正在紧张开发中", ToastAndroid.SHORT, ToastAndroid.CENTER);
+                InteractionManager.runAfterInteractions(()=> {
+                    navigator.push({
+                        component: TestAnimated,
+                        name: 'TestAnimated'
+                    });
+                });
                 break;
             case 1:
                 InteractionManager.runAfterInteractions(()=> {
@@ -112,7 +118,7 @@ class Center extends Component {
 
                 <View style={styles.horizontal_divide_line}/>
 
-                <HorizontalOptionBar icon={require('../images/ic_center_chongzhi.png')} title='充值'
+                <HorizontalOptionBar icon={require('../images/ic_center_chongzhi.png')} title='TestAnimated'
                                      onPress={()=>this.itemActionIndex(0)}/>
 
                 <View style={styles.horizontal_divide_line}/>
