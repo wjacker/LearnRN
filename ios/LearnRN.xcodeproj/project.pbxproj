@@ -827,7 +827,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dbc.iqx.2.6;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dbc.reactnative.demo;
 				PRODUCT_NAME = LearnRN;
 			};
 			name = Debug;
@@ -852,7 +852,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dbc.iqx.2.6;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dbc.reactnative.demo;
 				PRODUCT_NAME = LearnRN;
 			};
 			name = Release;
