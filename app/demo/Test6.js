@@ -10,33 +10,19 @@ import{
     StyleSheet,
     } from 'react-native';
 
-class Test2 extends Component {
+class Test6 extends Component {
     render() {
         return (
             <View>
-                <Text>
-                    根节点上放一个元素，不设置宽度
-                </Text>
-
-                <View style={{height: 20, backgroundColor: '#333333'}}/>
-
-                <Text style={[styles.text, styles.header]}>
-                    固定宽度的元素上放一个View，不设置宽度
-                </Text>
-
-                <View style={{width: 100}}>
-                    <View style={{height: 20, backgroundColor: '#333333'}}/>
+                <Text>绝对定位</Text>
+                <View style={{flex: 1, height: 100, backgroundColor: '#333333'}}>
+                    <View style={[styles.circle, {position: 'absolute', top: 50, left: 180}]}>
+                    </View>
                 </View>
 
-                <Text>
-                    flex的元素上放一个View，不设置宽度
-                </Text>
-
-                <View style={{flexDirection: 'row'}}>
-                    <View style={{flex: 1}}>
-                        <View style={{height: 20, backgroundColor: '#333333'}}/>
-                    </View>
-                    <View style={{flex: 1}}/>
+                <Text>相对定位</Text>
+                <View style={{flex: 1, height: 100, backgroundColor: '#333333'}}>
+                    <View style={[styles.circle, {position: 'relative', top: 50, left: 50, marginLeft: 50}]}/>
                 </View>
             </View>
         );
@@ -44,7 +30,12 @@ class Test2 extends Component {
 }
 
 const styles=StyleSheet.create({
-
+    circle: {
+        backgroundColor: '#fe0000',
+        borderRadius: 10,
+        width: 20,
+        height: 20
+    }
 });
 
-export default Test2;
+export default Test6;
