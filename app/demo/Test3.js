@@ -12,7 +12,7 @@ import{
 class Test3 extends Component {
     render() {
         return (
-            <View>
+            <View style={{marginTop:30}}>
                 <Text>
                     水平居中
                 </Text>

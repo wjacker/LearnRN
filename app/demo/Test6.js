@@ -13,7 +13,7 @@ import{
 class Test6 extends Component {
     render() {
         return (
-            <View>
+            <View style={{marginTop:30}}>
                 <Text>绝对定位</Text>
                 <View style={{flex: 1, height: 100, backgroundColor: '#333333'}}>
                     <View style={[styles.circle, {position: 'absolute', top: 50, left: 180}]}>
@@ -22,7 +22,7 @@ class Test6 extends Component {
 
                 <Text>相对定位</Text>
                 <View style={{flex: 1, height: 100, backgroundColor: '#333333'}}>
-                    <View style={[styles.circle, {position: 'relative', top: 50, left: 50, marginLeft: 50}]}/>
+                    <View style={[styles.circle, {position: 'relative', top: 50, left: 180, marginLeft: 50}]}/>
                 </View>
             </View>
         );

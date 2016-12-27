@@ -14,20 +14,20 @@ import{
 class Test4 extends Component {
     render() {
         return (
-            <View>
+            <View style={{marginTop:30}}>
                 <Text>等分的网格</Text>
                 <View style={styles.flexContainer}>
-                    <View style={styles.cell}>
+                    <View style={StyleSheet.flatten([styles.cell, styles.cellRed])}>
                         <Text style={styles.welcome}>
                             cell1
                         </Text>
                     </View>
-                    <View style={styles.cell}>
+                    <View style={StyleSheet.flatten([styles.cell, styles.cellBlue])}>
                         <Text style={styles.welcome}>
                             cell2
                         </Text>
                     </View>
-                    <View style={styles.cell}>
+                    <View style={StyleSheet.flatten([styles.cell, styles.cellGreen])}>
                         <Text style={styles.welcome}>
                             cell3
                         </Text>
@@ -35,18 +35,56 @@ class Test4 extends Component {
                 </View>
 
                 <Text>左边固定， 右边固定，中间flex的布局</Text>
-                <View style={styles.flexContainer}>
-                    <View style={styles.cellfixed}>
+                <View style={styles.flexContainer2}>
+                    <View style={StyleSheet.flatten([styles.cellfixed, styles.cellRed])}>
                         <Text style={styles.welcome}>
                             fixed
                         </Text>
                     </View>
-                    <View style={styles.cell}>
+                    <View style={StyleSheet.flatten([styles.cell, styles.cellBlue])}>
                         <Text style={styles.welcome}>
                             flex
                         </Text>
                     </View>
-                    <View style={styles.cellfixed}>
+                    <View style={StyleSheet.flatten([styles.cellfixed, styles.cellGreen])}>
+                        <Text style={styles.welcome}>
+                            fixed
+                        </Text>
+                    </View>
+                </View>
+
+                <Text>左中右都固定，中间留空</Text>
+                <View style={styles.flexContainer2}>
+                    <View style={StyleSheet.flatten([styles.cellfixed, styles.cellRed])}>
+                        <Text style={styles.welcome}>
+                            fixed
+                        </Text>
+                    </View>
+                    <View style={StyleSheet.flatten([styles.cellfixed, styles.cellBlue])}>
+                        <Text style={styles.welcome}>
+                            fixed
+                        </Text>
+                    </View>
+                    <View style={StyleSheet.flatten([styles.cellfixed, styles.cellGreen])}>
+                        <Text style={styles.welcome}>
+                            fixed
+                        </Text>
+                    </View>
+                </View>
+
+                <Text>左中右都固定，两边留空</Text>
+                <View style={{flexDirection: 'row', justifyContent:'space-around', flex: 1}}>
+                    <View style={StyleSheet.flatten([styles.cellfixed, styles.cellRed])}>
+                        <Text style={styles.welcome}>
+                            fixed
+                        </Text>
+                    </View>
+                    <View style={StyleSheet.flatten([styles.cellfixed, styles.cellBlue])}>
+                        <Text style={styles.welcome}>
+                            fixed
+                        </Text>
+                    </View>
+                    <View style={StyleSheet.flatten([styles.cellfixed, styles.cellGreen])}>
                         <Text style={styles.welcome}>
                             fixed
                         </Text>
@@ -120,6 +158,11 @@ const styles = StyleSheet.create({
         // 容器需要添加direction才能变成让子元素flex
         flexDirection: 'row'
     },
+    flexContainer2: {
+        flexDirection: 'row',
+        justifyContent:'space-between',
+        flex: 1,
+    },
     cell: {
         flex: 1,
         height: 50,
@@ -132,9 +175,18 @@ const styles = StyleSheet.create({
     },
     cellfixed: {
         height: 50,
-        width: 80,
-        backgroundColor: '#fefefe'
+        width: 80
     },
+    cellRed: {
+        backgroundColor: 'red'
+    },
+    cellBlue: {
+        backgroundColor: 'blue'
+    },
+    cellGreen: {
+        backgroundColor: 'green'
+    },
+
 });
 
 export default Test4;

@@ -13,7 +13,7 @@ import{
 class Test2 extends Component {
     render() {
         return (
-            <View>
+            <View style={{marginTop:30}}>
                 <Text>
                     根节点上放一个元素，不设置宽度
                 </Text>

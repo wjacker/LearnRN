@@ -16,7 +16,7 @@ class Test1 extends Component{
 
     render(){
         return(
-            <View>
+            <View style={{marginTop:30}}>
                 <Text>window.width={width}</Text>
                 <Text>window.height={height}</Text>
                 <Text>pixelRatio={PixelRatio.get()}</Text>

@@ -52,6 +52,16 @@ class Login extends Component {
     }
 
     login() {
+        const {navigator}=this.props;
+        // InteractionManager.runAfterInteractions(()=>{
+        //                        navigator.resetTo({
+        //                    component:Home,
+        //                     name:'Home'
+        //                 });
+        //             });
+
+        // return;
+
         console.log('login');
         if (this.state.corpName == null) {
             Toast.show('企业名不能为空');

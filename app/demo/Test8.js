@@ -13,7 +13,7 @@ import{
 class Test8 extends Component {
     render() {
         return (
-            <View>
+            <View style={{marginTop:30}}>
                 <Text style={[styles.text, styles.header]}>
                     文本元素
                 </Text>
@@ -35,9 +35,10 @@ class Test8 extends Component {
 
                 <View style={{backgroundColor: '#333333', padding: 10}}>
                     <Text style={{color: 'white'}}>
-                        <Text style={{color: 'red'}}>
+                        我是white的
+                        <Text style={{color: 'red', fontSize:30}}>
                             文本元素{'\n'}
-                            <Text>我是white还是red呢？{'\n'} </Text>
+                            <Text>我是white还是red呢？{'\n'}</Text>
                         </Text>
                         <Text>我应该是white的</Text>
                     </Text>

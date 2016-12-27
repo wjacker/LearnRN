@@ -13,7 +13,7 @@ import{
 class Test7 extends Component {
     render() {
         return (
-            <View>
+            <View style={{marginTop:30}}>
                 <Text style={[styles.text, styles.header]}>
                     在正常的View上设置padding
                 </Text>
@@ -27,7 +27,7 @@ class Test7 extends Component {
                 </Text>
                 <View style={{padding: 0, backgroundColor: '#333333'}}>
                     <Text style={[styles.text, {backgroundColor: '#fe0000', padding: 30}]}>
-                        text 元素上设置paddinga
+                        text 元素上设置padding
                     </Text>
                 </View>
 
